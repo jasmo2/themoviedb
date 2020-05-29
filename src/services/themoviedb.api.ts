@@ -1,0 +1,55 @@
+import axios from 'axios'
+export const baseUrl = 'https://api.themoviedb.org'
+export default {
+  getConfig: () =>
+    axios
+      .get(`${baseUrl}/4/configuration`, {
+        params: { api_key: process.env.API_KEY },
+      })
+      .then((res) => res.data)
+      .catch((error) => console.log(error)),
+  getPopularMovies: () =>
+    axios
+      .get(`${baseUrl}/4/discover/movie`, {
+        params: {
+          api_key: process.env.API_KEY,
+          primary_release_year: 2019,
+          sort_by: 'popularity.desc',
+        },
+      })
+      .then((res) => res.data)
+      .catch((error) => console.log(error)),
+  getMoviesByRate: (starNumber: number) =>
+    axios
+      .get(`${baseUrl}/4/discover/movie`, {
+        params: {
+          api_key: process.env.API_KEY,
+          /**
+           * NOTE:
+           * the lower limit should be multiply by 2 and then subtracted
+           * 2 to be between 0-8
+           * the upper limit is multiply by 2 to between 2-10
+           */
+          'vote_average.gte': starNumber * 2 - 2,
+          'vote_average.lte': starNumber * 2,
+          page: 500,
+        },
+      })
+      .then((res) => res.data)
+      .catch((error) => console.log(error)),
+
+  getMovieDetails: (id: string) =>
+    axios
+      .get(`${baseUrl}/4/movie/${id}`, {
+        params: { api_key: process.env.API_KEY },
+      })
+      .then((res) => res.data)
+      .catch((error) => console.log(error)),
+  Search: (query: string) =>
+    axios
+      .get(`${baseUrl}/4/search/movie`, {
+        params: { query, api_key: process.env.API_KEY },
+      })
+      .then((res) => res.data)
+      .catch((error) => console.log(error)),
+}
