@@ -9,6 +9,7 @@ import { RootState } from 'Services/rootReducer'
 import { getPopularMovies } from 'Services/slices'
 
 import { Section, MoviesWrapper, Title } from './styles'
+import { Link } from 'react-router-dom'
 
 const Movies: React.FC<MoviesProps> = (props) => {
   const { imageBaseUrl, movies } = props
@@ -19,7 +20,9 @@ const Movies: React.FC<MoviesProps> = (props) => {
   return (
     <>
       {movies.map((movie, idx) => (
-        <Movie key={movie.poster_path} {...movie} imageBaseUrl={imageBaseUrl} />
+        <Link key={movie.poster_path} to={`/movie/${movie.id}`}>
+          <Movie {...movie} imageBaseUrl={imageBaseUrl} />
+        </Link>
       ))}
     </>
   )

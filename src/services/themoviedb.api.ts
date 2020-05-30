@@ -15,7 +15,6 @@ export default {
       .get(`${baseUrl}/3/discover/movie`, {
         params: {
           api_key: process.env.REACT_APP_API_KEY,
-          primary_release_year: 2019,
           sort_by: 'popularity.desc',
         },
       })
@@ -40,7 +39,7 @@ export default {
       .then((res) => res.data)
       .catch((error) => console.log(error)),
 
-  getMovieDetails: (id: string) =>
+  getMovieDetails: (id: number) =>
     axios
       .get(`${baseUrl}/3/movie/${id}`, {
         params: { api_key: process.env.REACT_APP_API_KEY },

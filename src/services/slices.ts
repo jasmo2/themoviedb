@@ -9,6 +9,11 @@ import get from 'lodash/get'
 import { MovieProps } from 'Components/MovieCards/data'
 import { AppThunk } from './store'
 import TheMovieDBApi from './themoviedb.api'
+import {
+  MovieDetiailsProps,
+  MovieDetiailsBaseProps,
+} from 'Components/MovieDetails/data'
+import isUndefined from 'lodash/isUndefined'
 
 type configProps = {
   images: object
@@ -63,7 +68,27 @@ export const getPopularMovies = (): AppThunk => async (
 }
 export const { setPopularMovies } = popularMovieSlice.actions
 
+const movieDetailSlice = createSlice({
+  name: 'GET_MOVIE_DETAILS',
+  initialState: { movieDetails: null } as MovieDetiailsProps,
+  reducers: {
+    setMovieDetails(state, action: PayloadAction<MovieDetiailsBaseProps>) {
+      state.movieDetails = isUndefined(action.payload)
+        ? undefined
+        : { ...action.payload }
+    },
+  },
+})
+export const getMovieDetails = (movieId: number): AppThunk => async (
+  dispatch: Dispatch<AnyAction>
+): Promise<void> => {
+  const response = await TheMovieDBApi.getMovieDetails(movieId)
+  dispatch(setMovieDetails(response))
+}
+export const { setMovieDetails } = movieDetailSlice.actions
+
 export const reducers = {
   configSlice: configSlice.reducer,
   popularMovieSlice: popularMovieSlice.reducer,
+  movieDetails: movieDetailSlice.reducer,
 }

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { breakpoints } from 'Styles'
 
 export const Card = styled.div`
   background-color: #000;
@@ -8,7 +7,7 @@ export const Card = styled.div`
   position: relative;
 
   img {
-    width: auto;
+    width: 100%;
     height: auto;
     transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
   }
