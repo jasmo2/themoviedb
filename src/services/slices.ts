@@ -87,8 +87,31 @@ export const getMovieDetails = (movieId: number): AppThunk => async (
 }
 export const { setMovieDetails } = movieDetailSlice.actions
 
+const searchSlice = createSlice({
+  name: 'SEARCH_MOVIES',
+  initialState: {} as any,
+  reducers: {
+    setSearchedMovies(state, action: PayloadAction<MovieProps[]>) {
+      state.search = [].concat(action.payload as any) as MovieProps[]
+    },
+    resetSearch(state) {
+      state.search = [] as MovieProps[]
+    },
+  },
+})
+export const searchMovies = (movieToSearch: string): AppThunk => async (
+  dispatch: Dispatch<AnyAction>
+): Promise<void> => {
+  const response = await TheMovieDBApi.search(movieToSearch)
+  const result = get(response, 'results', [])
+
+  dispatch(setSearchedMovies(result))
+}
+export const { setSearchedMovies, resetSearch } = searchSlice.actions
+
 export const reducers = {
   configSlice: configSlice.reducer,
-  popularMovieSlice: popularMovieSlice.reducer,
+  popularMovies: popularMovieSlice.reducer,
   movieDetails: movieDetailSlice.reducer,
+  search: searchSlice.reducer,
 }

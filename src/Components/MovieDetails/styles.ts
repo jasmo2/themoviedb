@@ -9,10 +9,10 @@ const HeroSection = styled.section<HeightProps>`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: ${(p) => (p.height === 0 ? 'auto' : `${p.height}px`)};
+  padding-bottom: 250px;
   position: relative;
   width: 100%;
-  height: ${(p) => (p.height === 0 ? 'auto' : `${p.height}px`)};
 `
 
 const HeroImage = styled.img`
@@ -93,11 +93,10 @@ const HeroSynapsis = styled.div`
   margin-top: 30px;
   text-align: left;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 `
 
 const HeroParragraph = styled.p`
-  text-align: right;
   width: 60%;
 `
 

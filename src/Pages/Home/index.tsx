@@ -4,7 +4,7 @@ import get from 'lodash/get'
 
 import { RootState } from 'Services/rootReducer'
 
-import Header from 'Components/Header'
+import Header from 'Components/HomeHeader'
 import Popular from 'Components/Popular'
 
 import { Container } from './styles'

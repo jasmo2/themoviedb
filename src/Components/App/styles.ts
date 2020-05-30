@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 
-export const Container = styled.header`
-  height: 100%;
-  width: 100%;
+const backgroundColor = '#3d3d3d'
+
+export const Container = styled.div`
+  color: white;
+  background-color: ${backgroundColor};
 `

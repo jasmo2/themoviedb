@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -19,8 +20,8 @@ const Movies: React.FC<MoviesProps> = (props) => {
 
   return (
     <>
-      {movies.map((movie, idx) => (
-        <Link key={movie.poster_path} to={`/movie/${movie.id}`}>
+      {movies.map((movie) => (
+        <Link key={`popular-${movie.id}`} to={`/movie/${movie.id}`}>
           <Movie {...movie} imageBaseUrl={imageBaseUrl} />
         </Link>
       ))}
@@ -31,7 +32,7 @@ const Popular: React.FC<BaseUrlProps> = (props) => {
   const { imageBaseUrl } = props
   const dispatch = useDispatch()
   const { popularMovies } = useSelector(
-    (state: RootState) => state.popularMovieSlice
+    (state: RootState) => state.popularMovies
   )
 
   useEffect(() => {

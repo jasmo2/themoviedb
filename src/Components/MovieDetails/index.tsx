@@ -8,7 +8,7 @@ import { getMovieDetails } from 'Services/slices'
 
 import { Hero } from './styles'
 
-//TODO: Implement Provider that listent the Resize
+//ENHACEMENT Implement Provider that listent the Resize
 // to adpat the <Hero.Description /> always in the
 // same position
 
