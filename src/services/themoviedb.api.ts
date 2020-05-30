@@ -3,16 +3,18 @@ export const baseUrl = 'https://api.themoviedb.org'
 export default {
   getConfig: () =>
     axios
-      .get(`${baseUrl}/4/configuration`, {
-        params: { api_key: process.env.API_KEY },
+      .get(`${baseUrl}/3/configuration`, {
+        params: { api_key: process.env.REACT_APP_API_KEY },
       })
       .then((res) => res.data)
-      .catch((error) => console.log(error)),
+      .catch((error) => {
+        console.log(error)
+      }),
   getPopularMovies: () =>
     axios
-      .get(`${baseUrl}/4/discover/movie`, {
+      .get(`${baseUrl}/3/discover/movie`, {
         params: {
-          api_key: process.env.API_KEY,
+          api_key: process.env.REACT_APP_API_KEY,
           primary_release_year: 2019,
           sort_by: 'popularity.desc',
         },
@@ -21,9 +23,9 @@ export default {
       .catch((error) => console.log(error)),
   getMoviesByRate: (starNumber: number) =>
     axios
-      .get(`${baseUrl}/4/discover/movie`, {
+      .get(`${baseUrl}/3/discover/movie`, {
         params: {
-          api_key: process.env.API_KEY,
+          api_key: process.env.REACT_APP_API_KEY,
           /**
            * NOTE:
            * the lower limit should be multiply by 2 and then subtracted
@@ -40,15 +42,15 @@ export default {
 
   getMovieDetails: (id: string) =>
     axios
-      .get(`${baseUrl}/4/movie/${id}`, {
-        params: { api_key: process.env.API_KEY },
+      .get(`${baseUrl}/3/movie/${id}`, {
+        params: { api_key: process.env.REACT_APP_API_KEY },
       })
       .then((res) => res.data)
       .catch((error) => console.log(error)),
   Search: (query: string) =>
     axios
-      .get(`${baseUrl}/4/search/movie`, {
-        params: { query, api_key: process.env.API_KEY },
+      .get(`${baseUrl}/3/search/movie`, {
+        params: { query, api_key: process.env.REACT_APP_API_KEY },
       })
       .then((res) => res.data)
       .catch((error) => console.log(error)),
