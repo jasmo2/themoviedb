@@ -4,6 +4,7 @@ import isUndefined from 'lodash/isUndefined'
 import isNul from 'lodash/isNull'
 
 import { RootState } from 'Services/rootReducer'
+import { useWindowEvents } from 'Providers/Resizing'
 import { getMovieDetails } from 'Services/slices'
 
 import { Hero } from './styles'
@@ -16,12 +17,28 @@ const MovieDetails: React.FC<any> = (props) => {
   const { imageBaseUrl, movieId } = props
   const imgWrapperRef = useRef<HTMLDivElement>(null)
   const [offsetHeight, setOffsetHeight] = useState(0)
+  const { resizing } = useWindowEvents()
   const dispatch = useDispatch()
   const { movieDetails } = useSelector((state: RootState) => state.movieDetails)
+
+  const getImageOffsetHeight = () => {
+    const offsetHeight = imgWrapperRef.current?.offsetHeight || 0
+    setOffsetHeight(offsetHeight)
+  }
+
+  const handleLoaded = () => {
+    getImageOffsetHeight()
+  }
+
   useEffect(() => {
     dispatch(getMovieDetails(movieId))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    getImageOffsetHeight()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resizing])
 
   if (isUndefined(movieDetails)) {
     return <h1>404</h1>
@@ -29,11 +46,6 @@ const MovieDetails: React.FC<any> = (props) => {
 
   if (isNul(movieDetails)) {
     return null
-  }
-
-  const handleLoaded = () => {
-    const offsetHeight = imgWrapperRef.current?.offsetHeight || 0
-    setOffsetHeight(offsetHeight)
   }
 
   return (

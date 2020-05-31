@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import RatingFilter from 'react-rating'
+import StarGold from 'Assets/star-gold.svg'
+import StarBlack from 'Assets/star-black.svg'
+import StarHover from 'Assets/star-hover.svg'
 
 import isUndefined from 'lodash/isUndefined'
 
@@ -13,7 +16,7 @@ import isUndefined from 'lodash/isUndefined'
 
 import { MovieProps } from 'Components/MovieCards/data'
 
-import { ResultsWrapper, Result, Link, Rating } from './styles'
+import { ResultsWrapper, Result, Link, Rating, Stars } from './styles'
 interface ResultsProps {
   results: MovieProps[]
   imageBaseUrl: string
@@ -68,12 +71,21 @@ const Results: React.FC<ResultsProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
+  useEffect(() => {
+    setMovies(() => results)
+    setValue(() => undefined)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [results])
+
   return (
     <ResultsWrapper onMouseDown={onMouseDown}>
       <Rating.Wrapper>
         <Rating.Title>Filter by Rating</Rating.Title>
 
         <RatingFilter
+          emptySymbol={<Stars src={StarBlack} alt="StarBlack" />}
+          placeholderSymbol={<Stars src={StarHover} alt="StarHover" />}
+          fullSymbol={<Stars src={StarGold} alt="StarGold" />}
           initialRating={value}
           onClick={(number) => {
             setValue((prev) => {
@@ -96,4 +108,4 @@ const Results: React.FC<ResultsProps> = (props) => {
   )
 }
 
-export default Results
+export default React.memo(Results)

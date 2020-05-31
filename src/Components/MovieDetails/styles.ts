@@ -87,6 +87,7 @@ const HeroGenre = styled.li`
   margin-bottom: 6px;
   margin-right: 10px;
   padding: 10px 40px;
+  border-radius: 6px;
 `
 
 const HeroSynapsis = styled.div`

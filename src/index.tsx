@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider as ReduxProvider } from 'react-redux'
+import ResizingProvider from 'Providers/Resizing'
 
 import App from 'Components/App'
 import * as serviceWorker from 'serviceWorker'
@@ -9,9 +10,11 @@ import store from 'Services/store'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReduxProvider store={store}>
-      <App />
-    </ReduxProvider>
+    <ResizingProvider>
+      <ReduxProvider store={store}>
+        <App />
+      </ReduxProvider>
+    </ResizingProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

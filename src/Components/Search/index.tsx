@@ -59,15 +59,9 @@ const HomeSearch: React.FC<any> = (props) => {
     }
   }
 
-  /**
-   * ENHACEMENT: search on typing
-   * e.target.value
-   */
   const handleTyping = debounce((e: KeyboardEvent): void => {
-    if (e.key === 'Enter') {
-      const input = e.target as HTMLInputElement
-      dispatchSearch(input.value)
-    }
+    const input = e.target as HTMLInputElement
+    dispatchSearch(input.value)
   }, 150)
 
   const handleOnChange = (e: any) => setInputValue(e.target.value)
@@ -80,7 +74,6 @@ const HomeSearch: React.FC<any> = (props) => {
   }
 
   const handleExit = (e: any) => {
-    console.log('TCL: handleExit -> childrenElement', childrenElement)
     if (!childrenElement.current) {
       const input = searchRef.current!
       input.value = ''
@@ -102,7 +95,7 @@ const HomeSearch: React.FC<any> = (props) => {
   const handleResultsMouseDown = () => {
     setTimeout(() => {
       const input = searchRef.current!
-      input.focus()
+      input && input.focus()
     }, 10)
     childrenElement.current = true
   }

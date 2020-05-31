@@ -93,3 +93,9 @@ export const Rating = {
   Wrapper: RatingWrappers,
   Title: RatingTitle,
 }
+
+const starSize = 25
+export const Stars = styled.img`
+  width: ${starSize}px;
+  height: ${starSize}px;
+`
