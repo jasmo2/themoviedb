@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'
@@ -59,10 +59,13 @@ const HomeSearch: React.FC<any> = (props) => {
     }
   }
 
-  const handleTyping = debounce((e: KeyboardEvent): void => {
-    const input = e.target as HTMLInputElement
-    dispatchSearch(input.value)
-  }, 150)
+  const handleTyping = useCallback(
+    debounce((e: KeyboardEvent): void => {
+      const input = e.target as HTMLInputElement
+      dispatchSearch(input.value)
+    }, 150),
+    []
+  )
 
   const handleOnChange = (e: any) => setInputValue(e.target.value)
 
@@ -107,8 +110,7 @@ const HomeSearch: React.FC<any> = (props) => {
     return () => {
       input.removeEventListener('keydown', handleTyping)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [handleTyping])
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import isUndefined from 'lodash/isUndefined'
 import isNul from 'lodash/isNull'
@@ -17,9 +17,10 @@ const MovieDetails: React.FC<any> = (props) => {
   const { imageBaseUrl, movieId } = props
   const imgWrapperRef = useRef<HTMLDivElement>(null)
   const [offsetHeight, setOffsetHeight] = useState(0)
-  const { resizing } = useWindowEvents()
-  const dispatch = useDispatch()
+  const { width } = useWindowEvents()
   const { movieDetails } = useSelector((state: RootState) => state.movieDetails)
+
+  const dispatch = useCallback(useDispatch(), [])
 
   const getImageOffsetHeight = () => {
     const offsetHeight = imgWrapperRef.current?.offsetHeight || 0
@@ -32,13 +33,11 @@ const MovieDetails: React.FC<any> = (props) => {
 
   useEffect(() => {
     dispatch(getMovieDetails(movieId))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch, movieId])
 
   useEffect(() => {
     getImageOffsetHeight()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resizing])
+  }, [width])
 
   if (isUndefined(movieDetails)) {
     return <h1>404</h1>

@@ -68,13 +68,11 @@ const Results: React.FC<ResultsProps> = (props) => {
       })
       setMovies(filterMovies)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value])
+  }, [value, results])
 
   useEffect(() => {
     setMovies(() => results)
     setValue(() => undefined)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [results])
 
   return (
