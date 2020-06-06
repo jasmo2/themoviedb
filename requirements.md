@@ -1,4 +1,4 @@
-# React Coding Challenge
+# Requirements
 
 The goal of this coding challenge is to give you an opportunity to showcase your knowledge and show us how you work on a real-life project.
 
@@ -59,34 +59,3 @@ Do this filtering on the client side.
 ### Detail view
 
 Upon clicking, a detail view must be shown, displaying more information about the movie.
-
-## Design
-
-We do not require jaw dropping designs. <br>
-A clean, minimal UI will do.
-
-<br>
-We do want to see the movie images provided by the API.
-[Here's](https://dribbble.com/shots/1682568-Flixus-Homepage- WIP/attachments/266476) a design suggestion, but it's up to you.
-
-## Development requirements
-
-- Use `create-react-app` for this project
-- Use React 16.8 version
-- Provide all the steps necessary to launch the application
-
-## Deliverables
-
-- The project's codebase delivered somehow (you pick).
-- Anything else you consider is important for understanding the application.
-
-## FAQ
-
-- Do I need to add tests? - No.
-- Do I need to use some specific dependency?
-- Other than `React`, use what you feel comfortable with and what you feel
-  is necessary for this project
-- What kind of React features can I use?
-- No restrictions here, show us what you know. We love React, and we love to use the latest features.
-- Do I need to follow the designs?
-- No, feel free to build the UI as you like. We only care about the code.

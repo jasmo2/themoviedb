@@ -1,12 +1,20 @@
 # The Movie DB - Create React App
 
+## Movie App URL
+
+### [https://the-movie-db-jasmo2.herokuapp.com/](https://the-movie-db-jasmo2.herokuapp.com/)
+
+On the branch [virtualize-list](https://github.com/jasmo2/themoviedb/tree/virtualize-list) you can find the implementation with Virtual list for popular Movies section.
+
+Virtualize List deploy version: [the-movie-db-jasmo2-vitualize.herokuapp.com](https://the-movie-db-jasmo2-vitualize.herokuapp.com/)
+
 ##### Requirements, Markdown
 
 [REQUIREMENTS](./requirements.md)
 
 Using 3v version **api.themoviedb**.
 
-The use of Redux is mainly, due to the API.
+Redux, is use here to handle async aoi call and sync app-state. Due to, its optimisations is better than set it on a Context.
 
 ## Start the project
 
@@ -17,7 +25,6 @@ The use of Redux is mainly, due to the API.
 ```
 REACT_APP_API_KEY="the movies db apikey"
 NODE_ENV=development
-NODE_PATH='./src/'
 SKIP_PREFLIGHT_CHECK=true
 ```
 
