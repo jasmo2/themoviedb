@@ -22,11 +22,9 @@ const ResultWrapper = styled.div`
   padding: 10px;
   width: auto;
 
-  
   &:hover {
     background-color: lightgray;
   }
-}
 `
 
 const ResultTitle = styled.h4`

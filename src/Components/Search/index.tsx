@@ -4,9 +4,13 @@ import debounce from 'lodash/debounce'
 import isEmpty from 'lodash/isEmpty'
 import get from 'lodash/get'
 
-import magnifyingGlass from 'Assets/magnifying-glass.svg'
-import { RootState } from 'Services/rootReducer'
-import { searchMovies, getPopularMovies, resetSearch } from 'Services/slices'
+import magnifyingGlass from '../../Assets/magnifying-glass.svg'
+import { RootState } from '../../Service/rootReducer'
+import {
+  searchMovies,
+  getPopularMovies,
+  resetSearch,
+} from '../../Service/slices'
 
 import { Input, Container } from './styles'
 import Results from './Results'

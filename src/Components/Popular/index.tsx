@@ -2,12 +2,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Movie from 'Components/MovieCards'
+import Movie from '../MovieCards'
 
-import { BaseUrlProps } from 'SharedProps/BaseUrl'
+import { BaseUrlProps } from '../../SharedProps/BaseUrl'
 import { MoviesProps } from './data'
-import { RootState } from 'Services/rootReducer'
-import { getPopularMovies } from 'Services/slices'
+import { RootState } from '../../Service/rootReducer'
+import { getPopularMovies } from '../../Service/slices'
 
 import { Section, MoviesWrapper, Title } from './styles'
 import { Link } from 'react-router-dom'

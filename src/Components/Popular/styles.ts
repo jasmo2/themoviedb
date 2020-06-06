@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { breakpoints } from 'Styles'
+import { breakpoints } from '../../Styles'
 
 export const Section = styled.section`
   display: flex;

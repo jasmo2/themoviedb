@@ -1,5 +1,3 @@
-import { BaseUrlProps } from 'SharedProps/BaseUrl'
-
 export interface MovieDetiailsBaseProps {
   adult: boolean
   backdrop_path: string

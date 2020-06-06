@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { breakpoints } from 'Styles'
+import { breakpoints } from '../../Styles'
 
 const Colors = css`
   --inputGray: #f3f3f3;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { breakpoints } from 'Styles'
+import { breakpoints } from '../../Styles'
 
 interface HeightProps {
   height: number

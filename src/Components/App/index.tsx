@@ -2,10 +2,10 @@ import React, { useEffect, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { Route, BrowserRouter } from 'react-router-dom'
 
-import Initial from 'Pages/Home'
-import Movie from 'Pages/Movie'
+import Initial from '../../Pages/Home'
+import Movie from '../../Pages/Movie'
 
-import { getConfig } from 'Services/slices'
+import { getConfig } from '../../Service/slices'
 import { Container } from './styles'
 
 interface AppProps {}

@@ -6,13 +6,13 @@ import {
 } from '@reduxjs/toolkit'
 import get from 'lodash/get'
 
-import { MovieProps } from 'Components/MovieCards/data'
+import { MovieProps } from '../Components/MovieCards/data'
 import { AppThunk } from './store'
 import TheMovieDBApi from './themoviedb.api'
 import {
   MovieDetiailsProps,
   MovieDetiailsBaseProps,
-} from 'Components/MovieDetails/data'
+} from '../Components/MovieDetails/data'
 import isUndefined from 'lodash/isUndefined'
 
 type configProps = {

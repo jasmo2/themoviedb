@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 
-import coverImage from 'Assets/coverImage.jpg'
+import coverImage from '../../Assets/coverImage.jpg'
 
-import { breakpoints } from 'Styles'
+import { breakpoints } from '../../Styles'
 
 export const Header = styled.header`
   display: flex;

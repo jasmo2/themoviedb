@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import RatingFilter from 'react-rating'
-import StarGold from 'Assets/star-gold.svg'
-import StarBlack from 'Assets/star-black.svg'
-import StarHover from 'Assets/star-hover.svg'
 
 import isUndefined from 'lodash/isUndefined'
 
@@ -14,7 +11,10 @@ import isUndefined from 'lodash/isUndefined'
  * import { AutoSizer, List, InfiniteLoader } from 'react-virtualized'
  */
 
-import { MovieProps } from 'Components/MovieCards/data'
+import { MovieProps } from '../../MovieCards/data'
+import StarGold from '../../../Assets/star-gold.svg'
+import StarBlack from '../../../Assets/star-black.svg'
+import StarHover from '../../../Assets/star-hover.svg'
 
 import { ResultsWrapper, Result, Link, Rating, Stars } from './styles'
 interface ResultsProps {

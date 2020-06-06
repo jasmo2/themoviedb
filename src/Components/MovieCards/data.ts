@@ -1,4 +1,4 @@
-import { BaseUrlProps } from 'SharedProps/BaseUrl'
+import { BaseUrlProps } from '../../SharedProps/BaseUrl'
 
 export interface MovieProps extends BaseUrlProps {
   adult: boolean

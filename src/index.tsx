@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider as ReduxProvider } from 'react-redux'
-import ResizingProvider from '~/Providers/Resizing'
+import ResizingProvider from './Providers/Resizing'
 
-import App from '~/Components/App'
+import App from './Components/App'
 import * as serviceWorker from './serviceWorker'
 
-import store from '~/Services/store'
+import store from './Service/store'
 
 ReactDOM.render(
   <React.StrictMode>

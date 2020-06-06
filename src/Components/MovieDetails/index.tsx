@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import isUndefined from 'lodash/isUndefined'
 import isNul from 'lodash/isNull'
 
-import { RootState } from 'Services/rootReducer'
-import { useWindowEvents } from 'Providers/Resizing'
-import { getMovieDetails } from 'Services/slices'
+import { RootState } from '../../Service/rootReducer'
+import { useWindowEvents } from '../../Providers/Resizing'
+import { getMovieDetails } from '../../Service/slices'
 
 import { Hero } from './styles'
 
@@ -62,9 +62,14 @@ const MovieDetails: React.FC<any> = (props) => {
           <Hero.SubTitle>{movieDetails.tagline}</Hero.SubTitle>
           <Hero.Description height={offsetHeight}>
             <Hero.Genres>
-              {movieDetails.genres.map((genre) => (
-                <Hero.Genre key={genre.id}>{genre.name}</Hero.Genre>
-              ))}
+              {movieDetails.genres.map(
+                (genre: {
+                  id: string | number | undefined
+                  name: React.ReactNode
+                }) => (
+                  <Hero.Genre key={genre.id}>{genre.name}</Hero.Genre>
+                )
+              )}
             </Hero.Genres>
             <Hero.Synapsis>
               <Hero.Parragraph>{movieDetails.overview}</Hero.Parragraph>

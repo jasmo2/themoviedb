@@ -4,9 +4,9 @@ import get from 'lodash/get'
 import isNil from 'lodash/isNil'
 import { useRouteMatch } from 'react-router-dom'
 
-import MovieDetails from 'Components/MovieDetails'
+import MovieDetails from '../../Components/MovieDetails'
 
-import { RootState } from 'Services/rootReducer'
+import { RootState } from '../../Service/rootReducer'
 
 import { Container } from './styles'
 

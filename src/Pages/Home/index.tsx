@@ -2,10 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import get from 'lodash/get'
 
-import { RootState } from 'Services/rootReducer'
+import { RootState } from '../../Service/rootReducer'
 
-import Header from 'Components/HomeHeader'
-import Popular from 'Components/Popular'
+import Header from '../../Components/HomeHeader'
+import Popular from '../../Components/Popular'
 
 import { Container } from './styles'
 
