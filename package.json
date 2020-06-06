@@ -21,7 +21,10 @@
     "@types/react-virtualized": "^9.21.10",
     "axios": "^0.19.2",
     "emotion-theming": "^10.0.27",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "lodash": "^4.17.15",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-rating": "^2.0.5",
@@ -33,7 +36,9 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev:start": "react-scripts start",
+    "local:build": "yarn build && yarn start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
