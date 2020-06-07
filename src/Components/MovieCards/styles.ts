@@ -7,9 +7,11 @@ export const Card = styled.div`
   position: relative;
 
   img {
-    width: 100%;
-    height: auto;
+    display: block;
+    height: 100%;
+    margin: auto;
     transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+    width: auto;
   }
 
   &:hover {
